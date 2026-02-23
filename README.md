@@ -1,7 +1,7 @@
 # 🌊 MugenBlock Engine
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/Version-0.1.0-cyan.svg)](https://github.com/mugenyume/mugenblock/releases)
+[![Version](https://img.shields.io/badge/Version-0.2.0-cyan.svg)](https://github.com/mugenyume/mugenblock/releases)
 [![Platform](https://img.shields.io/badge/Platform-Chrome%20|%20Edge%20|%20Brave-brightgreen.svg)]()
 
 **MugenBlock** is a next-generation browser extension dedicated to infinite privacy and performance. Built on a high-speed filtering engine, it provides a premium, ad-free browsing experience while ensuring 100% of your data remains on your local device.
