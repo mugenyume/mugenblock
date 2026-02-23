@@ -103,25 +103,24 @@ class CosmeticEngine {
 
     // ─── Config Builder ──────────────────────────────────────────────
 
-    private buildConfig(_domain: string): CosmeticConfig {
+    private buildConfig(domain: string): CosmeticConfig {
         // Fast selectors: ID/class/attribute — O(1) lookup by browser engine
-        const fastSelectors = [
+        let fastSelectors = [
             '.ad-container', '#sidebar-ads', '.sponsored-post',
-            'div[class*="ad-"]', 'div[id*="ad-"]',
-            'iframe[src*="exoclick"]', 'iframe[src*="adsterra"]',
-            'iframe[src*="juicyads"]', 'iframe[src*="trafficjunky"]',
             '.ads-block', '.ad-box', '.ad-wrapper', '.ads-label',
             '[data-element]', '[data-izone]',
+            'iframe[src*="exoclick"]', 'iframe[src*="adsterra"]',
+            'iframe[src*="juicyads"]', 'iframe[src*="trafficjunky"]',
             'iframe[title="offer"]', 'iframe[title="Advertisement"]',
             'div[id^="__clb-spot_"]', 'iframe[id^="__clb-spot_"]',
             'div[class*="AdSlot"]', 'div[class*="AdsContainer"]',
             '.modal-backdrop',
-            // Obfuscated ad frameworks (common random-prefix classes)
-            '[class^="u2mdr"]', '[class^="E5"]', '[class^="K_4L"]',
-            '[class^="Ktq0"]', '[class^="BzSP"]', '[class^="Kh3J"]',
-            '[class^="SEuI"]', '[class^="dFZF"]', '[class^="KlYY"]',
-            '[class^="yQAt"]', '[class^="kV_E"]', '[class^="JbUt"]',
         ];
+
+        // Domain-specific safety: YouTube uses "ad-" in many legit player IDs/classes
+        if (!domain.includes('youtube.com')) {
+            fastSelectors.push('div[class*="ad-"]', 'div[id*="ad-"]');
+        }
 
         // Slow selectors: require computed style checks, only in advanced mode
         const slowSelectors = this.mode === 'advanced' ? [
@@ -478,17 +477,17 @@ class CosmeticEngine {
             if (highAlertActive) return;
             highAlertActive = true;
 
-            // Quick 2-second high-alert: sweep every 100ms (20 iterations)
+            // Quick 2-second high-alert: sweep every 150ms (reduced frequency for stability)
             let count = 0;
             const interval = setInterval(() => {
                 this.runFastCleanup();
                 this.nukeOverlaysNearVideo(video);
                 count++;
-                if (count >= 20) {
+                if (count >= 13) {
                     clearInterval(interval);
                     highAlertActive = false;
                 }
-            }, 100);
+            }, 150);
 
             // Immediate sweep
             this.runFastCleanup();
@@ -503,6 +502,9 @@ class CosmeticEngine {
 
     private nukeOverlaysNearVideo(video: HTMLVideoElement): void {
         const vRect = video.getBoundingClientRect();
+        // Skip check if video is not visible or too small
+        if (vRect.width < 50 || vRect.height < 50) return;
+
         const overlays = document.querySelectorAll('div[style*="fixed"], div[style*="absolute"]');
 
         for (let i = 0; i < overlays.length; i++) {
@@ -518,8 +520,12 @@ class CosmeticEngine {
                 const overlaps = !(rect.right < vRect.left || rect.left > vRect.right ||
                     rect.bottom < vRect.top || rect.top > vRect.bottom);
 
-                if (overlaps && !el.contains(video) && !el.matches('video, main, article, .content, .video-player, nav, header, footer')) {
-                    this.hideElement(el);
+                if (overlaps && !el.contains(video)) {
+                    // Critical: whitelist YouTube and generic player components
+                    const isPlayerUI = el.matches('video, main, article, .content, .video-player, nav, header, footer, [class*="player"], [class*="controls"], .ytp-*, [id*="player"]');
+                    if (!isPlayerUI) {
+                        this.hideElement(el);
+                    }
                 }
             } catch { /* detached node */ }
         }
