@@ -1,0 +1,75 @@
+{
+    "manifest_version": 3,
+    "name": "MugenBlock",
+    "version": "0.2.0",
+    "description": "Next-generation ad blocker — fast, private, zero data collection.",
+    "minimum_chrome_version": "111",
+    "permissions": [
+        "declarativeNetRequest",
+        "storage",
+        "alarms"
+    ],
+    "host_permissions": [
+        "*://*/*"
+    ],
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "action": {
+        "default_popup": "src/ui/popup/index.html",
+        "default_icon": {
+            "16": "icons/icon16.png",
+            "48": "icons/icon48.png",
+            "128": "icons/icon128.png"
+        }
+    },
+    "options_page": "src/ui/options/index.html",
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_start",
+            "all_frames": true
+        },
+        {
+            "matches": [
+                "*://*/*"
+            ],
+            "js": [
+                "main-world.js"
+            ],
+            "run_at": "document_start",
+            "all_frames": true,
+            "world": "MAIN"
+        }
+    ],
+    "declarative_net_request": {
+        "rule_resources": [
+            {
+                "id": "ruleset_core",
+                "enabled": true,
+                "path": "rules/core.json"
+            },
+            {
+                "id": "ruleset_privacy",
+                "enabled": true,
+                "path": "rules/privacy.json"
+            },
+            {
+                "id": "ruleset_peterlowe",
+                "enabled": true,
+                "path": "rules/peterlowe.json"
+            }
+        ]
+    },
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    }
+}

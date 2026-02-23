@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+.npm/
+
+# Build outputs
+/extension/dist/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Project-specific unnecessary files
+/unecessaryfilesv2/
+unecessaryfiles/
+*.log

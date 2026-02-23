@@ -1,0 +1,376 @@
+[
+    {
+        "id": 1001,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||adnxs.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1002,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||doubleclick.net^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1003,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||googlesyndication.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1004,
+        "priority": 20,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||youtube.com/get_midroll_info^",
+            "resourceTypes": [
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1005,
+        "priority": 20,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||youtube.com/api/stats/ads^",
+            "resourceTypes": [
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1006,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||adsterra.com^",
+            "resourceTypes": [
+                "script",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1007,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||exoclick.com^",
+            "resourceTypes": [
+                "script",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1008,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||popads.net^",
+            "resourceTypes": [
+                "script",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1009,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||propellerads.com^",
+            "resourceTypes": [
+                "script",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1010,
+        "priority": 25,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||turbo.cr/static/js/ads.js",
+            "resourceTypes": [
+                "script"
+            ]
+        }
+    },
+    {
+        "id": 1011,
+        "priority": 25,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||simpcity.rs/js/xf/ads.js",
+            "resourceTypes": [
+                "script"
+            ]
+        }
+    },
+    {
+        "id": 1012,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "/ads.js",
+            "domainType": "thirdParty",
+            "resourceTypes": [
+                "script"
+            ]
+        }
+    },
+    {
+        "id": 1013,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||acquiredeceasedundress.com^",
+            "resourceTypes": [
+                "script",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1014,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||holahupa.com^",
+            "resourceTypes": [
+                "script",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1015,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||monstrous-volcano.com^",
+            "resourceTypes": [
+                "script",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1016,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||popcash.net^",
+            "resourceTypes": [
+                "script",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1017,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||adcash.com^",
+            "resourceTypes": [
+                "script",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1018,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||onclickperformance.com^",
+            "resourceTypes": [
+                "script",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1019,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||onclickads.net^",
+            "resourceTypes": [
+                "script",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1020,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||doublepimp.com^",
+            "resourceTypes": [
+                "script",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1021,
+        "priority": 30,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "*/get/*?id=*",
+            "resourceTypes": [
+                "script"
+            ]
+        }
+    },
+    {
+        "id": 1022,
+        "priority": 30,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "*/ogpajnca?*",
+            "resourceTypes": [
+                "script"
+            ]
+        }
+    },
+    {
+        "id": 1023,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||deputizepacifistwipe.com^",
+            "resourceTypes": [
+                "script"
+            ]
+        }
+    },
+    {
+        "id": 1024,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ojfotraqjg.in^",
+            "resourceTypes": [
+                "script"
+            ]
+        }
+    },
+    {
+        "id": 1025,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "*.3de9c07b91.com^",
+            "resourceTypes": [
+                "image",
+                "script"
+            ]
+        }
+    },
+    {
+        "id": 1026,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pointcontinentrtb.com^",
+            "resourceTypes": [
+                "script",
+                "xmlhttprequest",
+                "image"
+            ]
+        }
+    },
+    {
+        "id": 1027,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ahmybid.net^",
+            "resourceTypes": [
+                "image"
+            ]
+        }
+    }
+]

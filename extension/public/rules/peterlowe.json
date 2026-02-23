@@ -1,0 +1,121 @@
+[
+    {
+        "id": 3001,
+        "priority": 1,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||101com.com^",
+            "resourceTypes": [
+                "main_frame",
+                "sub_frame",
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 3002,
+        "priority": 1,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||101order.com^",
+            "resourceTypes": [
+                "main_frame",
+                "sub_frame",
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 3003,
+        "priority": 1,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||123found.com^",
+            "resourceTypes": [
+                "main_frame",
+                "sub_frame",
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 3004,
+        "priority": 1,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||180reports.com^",
+            "resourceTypes": [
+                "main_frame",
+                "sub_frame",
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 3005,
+        "priority": 1,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||1st-finger.com^",
+            "resourceTypes": [
+                "main_frame",
+                "sub_frame",
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 3006,
+        "priority": 1,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||207.net^",
+            "resourceTypes": [
+                "main_frame",
+                "sub_frame",
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 3007,
+        "priority": 1,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||247realmedia.com^",
+            "resourceTypes": [
+                "main_frame",
+                "sub_frame",
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    }
+]
