@@ -32,7 +32,7 @@
 
 ### Regular Users (Recommended)
 1. Go to the [**Releases**](https://github.com/mugenyume/mugenblock/releases) page.
-2. Download the latest `mugenblock-v0.1.0.zip`.
+2. Download the latest `mugenblock.zip`.
 3. Unzip the file on your computer.
 4. Open your browser and go to `chrome://extensions/`.
 5. Enable **Developer Mode** (top right).
