@@ -62,6 +62,22 @@ Developed with ❤️ by [**mugenyume**](https://github.com/mugenyume).
 
 ---
 
+## 💎 Support This Project
+
+If you're loving this private, high-performance ad blocking engine and want to see more cutting-edge privacy tools, consider supporting the development! Your support fuels faster filtering updates, more insane heuristic experiments, and keeps the innovation flowing.
+
+**🚀 Crypto Donations (Preferred)**:
+- **Bitcoin (BTC)**: `bc1qqeu8hr9pc6fh9w00z7dq34cca6cv3whc64ke9p`
+- **Ethereum (ETH)**: `0xf2ce7f12c402EC6b8b34D8f20B6E3892a81C504a`
+- **Solana (SOL)**: `C1pSFTgWYm4gZuYTKGhS95ABaZ3avLes7MESBVZFz7G4`
+- **BNB**: `0xf2ce7f12c402EC6b8b34D8f20B6E3892a81C504a`
+- **Toncoin (TON)**: `UQBALqcqtW3GU8cg-4fGhR46hB14fSAZF4NIg1yu8D-MVN-T`
+- **USDT ERC20:** `0xf2ce7f12c402EC6b8b34D8f20B6E3892a81C504a`
+- **XRP:** `rPEeZBosNjyRBGN2CnpQ4J716tHvKmcE2g`
+- **Litecoin:** `LYo9PTfbT2VSxv7XKmh5FG5dovK3yJTB2B`
+
+---
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
