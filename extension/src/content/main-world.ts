@@ -1,138 +1,153 @@
-// MugenBlock Main World Shield — Scoped prototype patching for ad defense
-// Runs in MAIN world to intercept ad-tech APIs before they execute
-// All data stays local. Zero telemetry.
+// MugenBlock Sentinel — Universal Behavioral Shield
+// Targets malicious intent patterns rather than specific site names
 (function () {
     'use strict';
 
-    // ─── Idempotency Guard ─────────────────────────────────────────
-    if ((window as any).__mugenPatched) return;
-    (window as any).__mugenPatched = true;
+    if ((window as any).__mugenSentinel) return;
+    (window as any).__mugenSentinel = true;
 
-    // ─── Top-Frame Only (unless explicitly enabled) ────────────────
-    // Skip patching in iframes by default — reduces overhead and breakage
-    if (window !== window.top) return;
+    if (location.protocol === 'about:' || location.protocol === 'chrome:' || window !== window.top) return;
 
-    // ─── Known Ad Network Patterns ─────────────────────────────────
-    const AD_URL_PATTERNS: ReadonlyArray<string> = [
-        'exoclick', 'adsterra', 'juicyads', 'trafficjunky',
-        'popunder', 'clickunder', 'propellerads', 'hilltopads',
-        'adcash', 'clickadu', 'popcash', 'popads', 'admaven',
+    const AD_URL_PATTERNS = [
+        'exoclick',
+        'adsterra',
+        'juicyads',
+        'trafficjunky',
+        'popunder',
+        'clickunder',
+        'propellerads',
+        'hilltopads',
+        'adcash',
+        'clickadu',
+        'popcash',
+        'popads',
+        'admaven',
         'revcontent',
     ];
+    const CURRENT_ORIGIN = location.origin;
+    const originalToString = Function.prototype.toString;
+    const patchedRegistry = new Map<Function, string>();
 
-    const AD_HTML_MARKERS: ReadonlyArray<string> = [
-        'data-element', 'data-izone', 'title="offer"',
-        'title="Advertisement"',
-    ];
+    // ─── Interaction State ─────────────────────────────────────────
+    let lastValidInteractionTime = 0;
+    let lastInteractionTarget: HTMLElement | null = null;
 
-    function isAdNetworkUrl(url: string): boolean {
-        if (!url) return false;
-        const lower = url.toLowerCase();
-        return AD_URL_PATTERNS.some(p => lower.includes(p));
+    function isSafeElement(el: HTMLElement | null): boolean {
+        if (!el) return false;
+        const tag = el.tagName.toLowerCase();
+        const hasText = el.innerText.trim().length > 0;
+        const isInteractive =
+            ['a', 'button', 'input', 'select', 'textarea'].includes(tag) || el.closest('a, button, [role="button"]');
+
+        // A "Safe" element must be interactive AND have visible content OR be a clear UI icon
+        return !!(isInteractive && (hasText || el.querySelector('svg, img') || el.clientWidth < 100));
     }
 
-    function hasAdMarkers(html: string): boolean {
-        if (!html || html.length < 20) return false; // Too small to be ad injection
-        return AD_HTML_MARKERS.some(m => html.includes(m));
+    // ─── Stealth & Masking ─────────────────────────────────────────
+    Function.prototype.toString = function () {
+        if (patchedRegistry.has(this)) return patchedRegistry.get(this)!;
+        return originalToString.call(this);
+    };
+    function mask(patched: Function, original: Function) {
+        patchedRegistry.set(patched, originalToString.call(original));
     }
 
-    function isAdMarkerElement(el: any): boolean {
+    // ─── Universal Domain Scoring ──────────────────────────────────
+    function getDomainScore(url: string): number {
         try {
-            if (!el || typeof el.hasAttribute !== 'function') return false;
-            return el.hasAttribute('data-element') ||
-                el.hasAttribute('data-izone') ||
-                (typeof el.className === 'string' && el.className.includes('AdSlot'));
+            const host = new URL(url, location.href).hostname;
+            if (host.includes(location.hostname)) return 0; // Safe: Same site
+
+            let score = 0;
+            const suspiciousTLDs = ['.in', '.pw', '.top', '.xyz', '.date', '.loan', '.click', '.info'];
+            if (suspiciousTLDs.some((tld) => host.endsWith(tld))) score += 50;
+
+            const name = host.split('.')[0];
+            if (name.length > 12) score += 30;
+            if (/[0-9]{3,}/.test(name)) score += 20; // Multiple numbers in domain
+            if (!/[aeiouy]/.test(name.slice(0, 6))) score += 40; // No vowels in start (Gibberish)
+
+            return score;
         } catch {
-            return false;
+            return 100;
         }
     }
 
-    // ─── window.open — Scoped Blocking ─────────────────────────────
-    // Only block: (1) known ad network URLs, (2) non-user-gesture opens
-    // Allow: OAuth, payment, docs, blank, blob opens
+    function isMaliciousIntent(url: string): boolean {
+        const score = getDomainScore(url);
+        const timeSinceInteraction = Date.now() - lastValidInteractionTime;
+
+        // Malicious if: (1) High domain score OR (2) No recent valid user interaction
+        if (score > 60) return true;
+        if (timeSinceInteraction > 1000 && !isSafeElement(lastInteractionTarget)) return true;
+
+        return AD_URL_PATTERNS.some((p) => url.toLowerCase().includes(p));
+    }
+
+    // ─── window.open — Hardened ───────────────────────────────────
     const originalOpen = window.open;
-    const openDescriptor = Object.getOwnPropertyDescriptor(window, 'open');
-
-    window.open = function (
-        url?: string | URL,
-        name?: string,
-        specs?: string
-    ): Window | null {
-        try {
-            const urlStr = url ? url.toString() : '';
-
-            // Always allow empty/internal
-            if (!urlStr || urlStr === 'about:blank' || urlStr.startsWith('blob:') || urlStr.startsWith('data:')) {
-                return originalOpen.call(window, url as any, name, specs);
-            }
-
-            // Block known ad network URLs
-            if (isAdNetworkUrl(urlStr)) {
-                return null;
-            }
-
-            // Heuristic: suspicious opens with ad-like query params
-            const lower = urlStr.toLowerCase();
-            if (lower.includes('popunder') || lower.includes('clickunder')) {
-                return null;
-            }
-        } catch {
-            // Fail open on any error
+    window.open = function (url?: string | URL, name?: string, specs?: string): any {
+        const urlStr = url ? url.toString() : '';
+        if (isMaliciousIntent(urlStr)) {
+            return new Proxy({}, { get: (_, p) => (p === 'closed' ? true : () => {}) });
         }
         return originalOpen.call(window, url as any, name, specs);
     };
+    mask(window.open, originalOpen);
 
-    // Preserve descriptor properties
-    if (openDescriptor) {
-        try {
-            Object.defineProperty(window, 'open', {
-                configurable: openDescriptor.configurable,
-                enumerable: openDescriptor.enumerable,
-                writable: true,
-                value: window.open,
-            });
-        } catch { /* non-configurable in some contexts */ }
-    }
-
-    // ─── appendChild — Neutralize Ad Element Construction ──────────
-    const originalAppendChild = Element.prototype.appendChild;
-    Element.prototype.appendChild = function <T extends Node>(newChild: T): T {
-        try {
-            if (newChild instanceof HTMLElement && isAdMarkerElement(newChild)) {
-                newChild.style.setProperty('display', 'none', 'important');
-                newChild.style.setProperty('visibility', 'hidden', 'important');
+    // ─── Tracker ───────────────────────────────────────────────────
+    window.addEventListener(
+        'mousedown',
+        (e) => {
+            lastInteractionTarget = e.target as HTMLElement;
+            if (isSafeElement(lastInteractionTarget)) {
+                lastValidInteractionTime = Date.now();
             }
-        } catch { /* fail open */ }
-        return originalAppendChild.call(this, newChild) as T;
-    };
+        },
+        { capture: true },
+    );
 
-    // ─── setAttribute — Intercept Ad Attribute Injection ───────────
-    const originalSetAttribute = Element.prototype.setAttribute;
-    Element.prototype.setAttribute = function (name: string, value: string): void {
-        try {
-            if (name === 'data-element' || name === 'data-izone') {
-                if (this instanceof HTMLElement) {
-                    this.style.setProperty('display', 'none', 'important');
-                    this.style.setProperty('visibility', 'hidden', 'important');
+    // ─── Universal Ghost Link Trap ─────────────────────────────────
+    document.addEventListener(
+        'click',
+        (e) => {
+            const target = e.target as HTMLElement;
+            const link = target.closest('a');
+
+            if (link) {
+                const url = link.href;
+                if (isMaliciousIntent(url) || (!isSafeElement(target) && link.target === '_blank')) {
+                    e.stopImmediatePropagation();
+                    e.preventDefault();
+                    link.remove();
                 }
             }
-        } catch { /* fail open */ }
-        return originalSetAttribute.call(this, name, value);
-    };
+        },
+        { capture: true },
+    );
 
-    // ─── insertAdjacentHTML — Narrowed Blocking ────────────────────
-    // Only block when: HTML contains exact ad markers AND is large enough
-    // to be ad injection (>200 chars). Small legit HTML passes through.
-    const originalInsertAdjacentHTML = Element.prototype.insertAdjacentHTML;
-    Element.prototype.insertAdjacentHTML = function (
-        position: InsertPosition,
-        html: string
-    ): void {
-        try {
-            if (typeof html === 'string' && html.length > 200 && hasAdMarkers(html)) {
-                return; // Block silently
-            }
-        } catch { /* fail open */ }
-        return originalInsertAdjacentHTML.call(this, position, html);
+    // ─── Network Mirroring ─────────────────────────────────────────
+    const originalFetch = window.fetch;
+    window.fetch = async function (input: any, init?: any) {
+        const url = input instanceof Request ? input.url : input.toString();
+        if (isMaliciousIntent(url)) {
+            return new Response(JSON.stringify({ status: 'ok', data: [] }), {
+                status: 200,
+                headers: { 'Content-Type': 'application/json' },
+            });
+        }
+        return originalFetch.call(this, input, init);
     };
+    mask(window.fetch, originalFetch);
+
+    // ─── Global Styling ────────────────────────────────────────────
+    const style = document.createElement('style');
+    style.textContent = `
+        /* Universal "Ghost" Neutralization */
+        [style*="z-index: 2147483647"], [style*="z-index: 999999"] {
+            pointer-events: none !important;
+            opacity: 0 !important;
+        }
+    `;
+    document.documentElement.appendChild(style);
 })();
