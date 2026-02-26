@@ -74,6 +74,37 @@ const Options: React.FC = () => {
         });
     };
 
+    const importConfig = () => {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = '.json';
+        input.onchange = (e: any) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = async (event) => {
+                try {
+                    const data = JSON.parse(event.target?.result as string);
+                    if (data.settings && data.schemaVersion) {
+                        chrome.runtime.sendMessage({ type: 'IMPORT_SETTINGS', data }, (res) => {
+                            if (res?.ok) {
+                                showToast('Configuration restored.');
+                            } else {
+                                showToast('Import failed: Invalid format.');
+                            }
+                        });
+                    } else {
+                        showToast('Import failed: Missing core parameters.');
+                    }
+                } catch (err) {
+                    showToast('Import failed: Data corruption.');
+                }
+            };
+            reader.readAsText(file);
+        };
+        input.click();
+    };
+
     if (!settings) return <div className="loading-screen">INITIALIZING MUGEN_CORE...</div>;
 
     const siteEntries = Object.entries(perSite).filter(([, v]) => v.mode !== 'lite' || v.breakageCount > 0);
@@ -163,6 +194,9 @@ const Options: React.FC = () => {
                     <div className="action-footer">
                         <button className="cc-btn primary" onClick={exportConfig}>
                             BACKUP_CORE
+                        </button>
+                        <button className="cc-btn primary" onClick={importConfig}>
+                            RESTORE_CORE
                         </button>
                         <button className="cc-btn secondary" onClick={() => chrome.runtime.openOptionsPage()}>
                             REFRESH_INTERFACE
