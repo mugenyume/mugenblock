@@ -37,7 +37,7 @@ const DEFAULT_SETTINGS: StorageSchema = {
 
 // ─── Service Worker ──────────────────────────────────────────────────
 
-class ExtensionServiceWorker {
+export class ExtensionServiceWorker {
     private settingsCache: StorageSchema['settings'] | null = null;
     private perSiteCache: Record<string, SiteSettings> = {};
     private statsBuffer: StatsData = { ...DEFAULT_STATS };
