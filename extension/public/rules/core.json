@@ -372,5 +372,2473 @@
                 "image"
             ]
         }
+    },
+    {
+        "id": 1028,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||taboola.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1029,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||outbrain.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1030,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||criteo.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1031,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pubmatic.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1032,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||openx.net^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1033,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||rubiconproject.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1034,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||adsrvr.org^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1035,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||adform.net^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1036,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||bidswitch.net^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1037,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||casalemedia.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1038,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||smartadserver.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1039,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||33across.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1040,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||amazon-adsystem.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1041,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||moatads.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1042,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||adsymptotic.com^",
+            "resourceTypes": [
+                "script",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1043,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||advertising.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1044,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||scorecardresearch.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1045,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||quantserve.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1046,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||quantcount.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1047,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||media.net^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1048,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||mgid.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1049,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||revcontent.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1050,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||zergnet.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1051,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||adservice.google.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1052,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pagead2.googlesyndication.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1053,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||googleadservices.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1054,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||tpc.googlesyndication.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1055,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ad.doubleclick.net^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1056,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||securepubads.g.doubleclick.net^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1057,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||cm.g.doubleclick.net^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1058,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||stats.g.doubleclick.net^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1059,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||bid.g.doubleclick.net^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1060,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ib.adnxs.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1061,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||secure.adnxs.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1062,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||view.adnxs.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1063,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||fastlane.rubiconproject.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1064,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||optimized-by.rubiconproject.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1065,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.rubiconproject.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1066,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||a.teads.tv^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1067,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||t.teads.tv^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1068,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||p.teads.tv^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1069,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||v.teads.tv^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1070,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ads.pubmatic.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1071,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.pubmatic.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1072,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||simage2.pubmatic.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1073,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||u.openx.net^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1074,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||rtb.openx.net^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1075,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||d.openx.net^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1076,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||as-sec.casalemedia.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1077,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||dsum-sec.casalemedia.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1078,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||cm.casalemedia.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1079,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||bidder.criteo.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1080,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||static.criteo.net^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1081,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||sslwidget.criteo.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1082,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ad.yieldlab.net^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1083,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.yieldlab.net^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1084,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||b.yieldlab.net^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1085,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||track.adform.net^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1086,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||s2s.adform.net^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1087,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||adx.adform.net^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1088,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ads.mopub.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1089,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.mopub.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1090,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||p.mopub.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1091,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ads.yahoo.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1092,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.ads.yahoo.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1093,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||s.yimg.com/rq/darla^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1094,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ads.stickyadstv.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1095,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||v.stickyadstv.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1096,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||p.stickyadstv.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1097,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ads.tremorhub.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1098,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.tremorhub.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1099,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||u.tremorhub.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1100,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ads.undertone.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1101,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.undertone.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1102,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||cdn.undertone.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1103,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ads.vidoomy.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1104,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.vidoomy.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1105,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||static.vidoomy.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1106,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ads.widespace.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1107,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.widespace.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1108,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||engine.widespace.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1109,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ads.betrad.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1110,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.betrad.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1111,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||l.betrad.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1112,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ads.creative-serving.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1113,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.creative-serving.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1114,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||cdn.creative-serving.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1115,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ads.flashtalking.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1116,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.flashtalking.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1117,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||static.flashtalking.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1118,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ads.goldbach.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1119,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.goldbach.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1120,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||static.goldbach.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1121,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ads.gumgum.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1122,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.gumgum.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1123,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||g2.gumgum.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1124,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ads.imrworldwide.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1125,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.imrworldwide.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1126,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||secure-gl.imrworldwide.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1127,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ads.inmobi.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1128,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.inmobi.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1129,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||static.inmobi.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1130,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ads.media.net^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1131,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.media.net^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1132,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||contextual.media.net^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1133,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ads.playground.xyz^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1134,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.playground.xyz^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1135,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||cdn.playground.xyz^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1136,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ads.revcontent.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1137,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.revcontent.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1138,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||cdn.revcontent.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1139,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ads.sharethrough.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1140,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.sharethrough.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1141,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||cdn.sharethrough.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1142,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ads.sonobi.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1143,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.sonobi.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1144,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||cdn.sonobi.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1145,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ads.spotxchange.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1146,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.spotxchange.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1147,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||search.spotxchange.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1148,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ads.triplelift.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1149,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.triplelift.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1150,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||cdn.triplelift.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1151,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||ads.unrulyads.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1152,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pixel.unrulyads.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1153,
+        "priority": 10,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||video.unrulyads.com^",
+            "resourceTypes": [
+                "script",
+                "image",
+                "xmlhttprequest",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1154,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "*.3de9c07b91.com",
+            "resourceTypes": [
+                "script",
+                "sub_frame",
+                "image"
+            ]
+        }
+    },
+    {
+        "id": 1155,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "*.a1b2c3d4e5.net",
+            "resourceTypes": [
+                "script",
+                "sub_frame",
+                "image"
+            ]
+        }
+    },
+    {
+        "id": 1156,
+        "priority": 100,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||nzewzekz.in^",
+            "resourceTypes": [
+                "sub_frame",
+                "script",
+                "xmlhttprequest"
+            ]
+        }
+    },
+    {
+        "id": 1157,
+        "priority": 100,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "regexFilter": "^https?://[^/]+/sklnk/[0-9]+",
+            "resourceTypes": [
+                "sub_frame",
+                "script"
+            ]
+        }
+    },
+    {
+        "id": 1159,
+        "priority": 100,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "regexFilter": "https?://[^/]+/(sklnk|od/pcy|omvvmiol)/",
+            "resourceTypes": [
+                "sub_frame",
+                "script",
+                "xmlhttprequest",
+                "image"
+            ]
+        }
+    },
+    {
+        "id": 1158,
+        "priority": 100,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "||pifrabpukarg.in^",
+            "resourceTypes": [
+                "sub_frame",
+                "script",
+                "xmlhttprequest",
+                "image"
+            ]
+        }
+    },
+    {
+        "id": 1265,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "*.x7y8z9w0.org",
+            "resourceTypes": [
+                "script",
+                "sub_frame",
+                "image"
+            ]
+        }
+    },
+    {
+        "id": 1266,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "*.q1w2e3r4t5.biz",
+            "resourceTypes": [
+                "script",
+                "sub_frame",
+                "image"
+            ]
+        }
+    },
+    {
+        "id": 1284,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "/ad.js",
+            "domainType": "thirdParty",
+            "resourceTypes": [
+                "script",
+                "image",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1285,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "/ads.php",
+            "domainType": "thirdParty",
+            "resourceTypes": [
+                "script",
+                "image",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1286,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "/pop.js",
+            "domainType": "thirdParty",
+            "resourceTypes": [
+                "script",
+                "image",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1287,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "/popunder.js",
+            "domainType": "thirdParty",
+            "resourceTypes": [
+                "script",
+                "image",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1288,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "/tracking.js",
+            "domainType": "thirdParty",
+            "resourceTypes": [
+                "script",
+                "image",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1289,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "/pixel.js",
+            "domainType": "thirdParty",
+            "resourceTypes": [
+                "script",
+                "image",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1290,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "/analytics.js",
+            "domainType": "thirdParty",
+            "resourceTypes": [
+                "script",
+                "image",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1291,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "/advertisement.js",
+            "domainType": "thirdParty",
+            "resourceTypes": [
+                "script",
+                "image",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1292,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "/adframe.js",
+            "domainType": "thirdParty",
+            "resourceTypes": [
+                "script",
+                "image",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1293,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "/show_ads.js",
+            "domainType": "thirdParty",
+            "resourceTypes": [
+                "script",
+                "image",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1294,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "/wp-content/plugins/ad-rotate/ad-rotate.js",
+            "domainType": "thirdParty",
+            "resourceTypes": [
+                "script",
+                "image",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1295,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "/ad-manager.js",
+            "domainType": "thirdParty",
+            "resourceTypes": [
+                "script",
+                "image",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1296,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "/ad-service.js",
+            "domainType": "thirdParty",
+            "resourceTypes": [
+                "script",
+                "image",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1297,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "/ad-system.js",
+            "domainType": "thirdParty",
+            "resourceTypes": [
+                "script",
+                "image",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1298,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "/ad-tech.js",
+            "domainType": "thirdParty",
+            "resourceTypes": [
+                "script",
+                "image",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1299,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "/ad-provider.js",
+            "domainType": "thirdParty",
+            "resourceTypes": [
+                "script",
+                "image",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1300,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "/ad-client.js",
+            "domainType": "thirdParty",
+            "resourceTypes": [
+                "script",
+                "image",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1301,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "/ad-api.js",
+            "domainType": "thirdParty",
+            "resourceTypes": [
+                "script",
+                "image",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1302,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "/ad-worker.js",
+            "domainType": "thirdParty",
+            "resourceTypes": [
+                "script",
+                "image",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1303,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "/ads-iframe.html",
+            "domainType": "thirdParty",
+            "resourceTypes": [
+                "script",
+                "image",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1304,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "/ad-frame.html",
+            "domainType": "thirdParty",
+            "resourceTypes": [
+                "script",
+                "image",
+                "sub_frame"
+            ]
+        }
+    },
+    {
+        "id": 1305,
+        "priority": 15,
+        "action": {
+            "type": "block"
+        },
+        "condition": {
+            "urlFilter": "/ad-banner.html",
+            "domainType": "thirdParty",
+            "resourceTypes": [
+                "script",
+                "image",
+                "sub_frame"
+            ]
+        }
     }
 ]
