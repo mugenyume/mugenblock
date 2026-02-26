@@ -4,14 +4,8 @@
     "version": "0.2.0",
     "description": "Next-generation ad blocker — fast, private, zero data collection.",
     "minimum_chrome_version": "111",
-    "permissions": [
-        "declarativeNetRequest",
-        "storage",
-        "alarms"
-    ],
-    "host_permissions": [
-        "*://*/*"
-    ],
+    "permissions": ["declarativeNetRequest", "storage", "alarms"],
+    "host_permissions": ["*://*/*"],
     "background": {
         "service_worker": "background.js",
         "type": "module"
@@ -27,24 +21,16 @@
     "options_page": "src/ui/options/index.html",
     "content_scripts": [
         {
-            "matches": [
-                "*://*/*"
-            ],
-            "js": [
-                "content.js"
-            ],
+            "matches": ["*://*/*"],
+            "js": ["content.js"],
             "run_at": "document_start",
-            "all_frames": true
+            "all_frames": false
         },
         {
-            "matches": [
-                "*://*/*"
-            ],
-            "js": [
-                "main-world.js"
-            ],
+            "matches": ["*://*/*"],
+            "js": ["main-world.js"],
             "run_at": "document_start",
-            "all_frames": true,
+            "all_frames": false,
             "world": "MAIN"
         }
     ],
