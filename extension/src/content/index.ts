@@ -14,6 +14,7 @@ class MugenShield {
     private mode: FilteringMode = 'lite';
     private siteConfig = { ...DEFAULT_SITE_SETTINGS };
     private blockedCount = 0;
+    private sweepTimer: ReturnType<typeof setInterval> | null = null;
 
     constructor() {
         if (location.protocol === 'about:' || location.protocol === 'chrome:' || window !== window.top) {
@@ -46,18 +47,21 @@ class MugenShield {
         this.mode = (this.siteConfig.mode || data.settings?.mode || 'lite') as FilteringMode;
 
         if (this.siteConfig.relaxUntil && Date.now() < this.siteConfig.relaxUntil) {
+            this.clearTimer();
             this.cosmetic.removeCss();
             this.mutations?.stop();
             return;
         }
 
         if (this.mode === 'lite') {
+            this.clearTimer();
             this.cosmetic.removeCss();
             this.mutations?.stop();
             return;
         }
 
         if (this.siteConfig.cosmeticsOff) {
+            this.clearTimer();
             this.cosmetic.removeCss();
             this.mutations?.stop();
             return;
@@ -80,7 +84,8 @@ class MugenShield {
         }
 
         // Periodic Sweep for persistent "ghost" ads (including Shadow DOM)
-        setInterval(() => {
+        this.clearTimer();
+        this.sweepTimer = setInterval(() => {
             if (this.mode === 'lite') return;
             let sweepCount = 0;
 
@@ -119,6 +124,13 @@ class MugenShield {
                 this.reportStats(this.blockedCount);
             }
         });
+    }
+
+    private clearTimer() {
+        if (this.sweepTimer) {
+            clearInterval(this.sweepTimer);
+            this.sweepTimer = null;
+        }
     }
 
     private reportStats(count: number) {
