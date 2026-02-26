@@ -242,7 +242,7 @@ class ExtensionServiceWorker {
         // Handle relax alarm expiry (consolidated from standalone listener)
         if (alarm.name.startsWith('relax-')) {
             const domain = alarm.name.slice(6);
-            const ruleId = RELAX_RULE_ID_BASE + Math.abs(hashDomain(domain) % 100_000);
+            const ruleId = RELAX_RULE_ID_BASE + Math.abs(hashDomain(domain) % 1_000_000);
             try {
                 await chrome.declarativeNetRequest.updateSessionRules({ removeRuleIds: [ruleId] });
             } catch {
@@ -455,7 +455,7 @@ class ExtensionServiceWorker {
         this.debouncePersistSettings();
 
         // Add a session rule to allowlist this domain temporarily
-        const ruleId = RELAX_RULE_ID_BASE + Math.abs(hashDomain(normalized) % 100_000);
+        const ruleId = RELAX_RULE_ID_BASE + Math.abs(hashDomain(normalized) % 1_000_000);
         try {
             await chrome.declarativeNetRequest.updateSessionRules({
                 removeRuleIds: [ruleId],
@@ -572,7 +572,7 @@ class ExtensionServiceWorker {
 
     // P3-2 FIX: Implement actual DNR session rules per domain
     private async updateDnrForDomain(domain: string, mode: FilteringMode): Promise<void> {
-        const ruleId = RELAX_RULE_ID_BASE + 100_000 + Math.abs(hashDomain(domain) % 100_000);
+        const ruleId = RELAX_RULE_ID_BASE + 1_000_000 + Math.abs(hashDomain(domain) % 1_000_000);
 
         if (mode === 'lite') {
             // In lite mode, clean up any domain-specific session rules

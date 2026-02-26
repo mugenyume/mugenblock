@@ -3,14 +3,23 @@ import type { FilteringMode } from '@mugenblock/shared';
 export class InteractionGuard {
     private isAdvanced = false;
     private onBlockCallback?: (count: number) => void;
+    private videoObserver: MutationObserver | null = null;
 
     constructor() {}
 
     public start(mode: FilteringMode, onBlock?: (count: number) => void) {
+        this.stop();
         this.onBlockCallback = onBlock;
         this.isAdvanced = mode === 'advanced';
         this.setupClickProtection();
         this.setupVideoDefense();
+    }
+
+    public stop() {
+        if (this.videoObserver) {
+            this.videoObserver.disconnect();
+            this.videoObserver = null;
+        }
     }
 
     private report(count: number) {
@@ -99,6 +108,11 @@ export class InteractionGuard {
     private setupVideoDefense() {
         if (!this.isAdvanced) return;
 
+        if (this.videoObserver) {
+            this.videoObserver.disconnect();
+            this.videoObserver = null;
+        }
+
         const handleVideo = (video: HTMLVideoElement) => {
             if (video.hasAttribute('data-mugen-protected')) return;
             video.setAttribute('data-mugen-protected', 'true');
@@ -109,7 +123,7 @@ export class InteractionGuard {
 
         document.querySelectorAll('video').forEach((v) => handleVideo(v as HTMLVideoElement));
 
-        const observer = new MutationObserver((mutations) => {
+        this.videoObserver = new MutationObserver((mutations) => {
             for (const mut of mutations) {
                 mut.addedNodes.forEach((node) => {
                     if (node instanceof HTMLVideoElement) {
@@ -121,7 +135,7 @@ export class InteractionGuard {
             }
         });
 
-        observer.observe(document.documentElement, { childList: true, subtree: true });
+        this.videoObserver.observe(document.documentElement, { childList: true, subtree: true });
     }
 
     private sweepVideo(video: HTMLVideoElement) {

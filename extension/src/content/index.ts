@@ -50,6 +50,7 @@ class MugenShield {
             this.clearTimer();
             this.cosmetic.removeCss();
             this.mutations?.stop();
+            this.interactions?.stop();
             return;
         }
 
@@ -57,6 +58,7 @@ class MugenShield {
             this.clearTimer();
             this.cosmetic.removeCss();
             this.mutations?.stop();
+            this.interactions?.stop();
             return;
         }
 
@@ -64,6 +66,7 @@ class MugenShield {
             this.clearTimer();
             this.cosmetic.removeCss();
             this.mutations?.stop();
+            this.interactions?.stop();
             return;
         }
 
