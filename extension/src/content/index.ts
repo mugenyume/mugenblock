@@ -113,15 +113,17 @@ class MugenShield {
         }, 3000);
 
         requestIdleCallback(() => {
+            let idleScanCount = 0;
             document.querySelectorAll(fastSelector).forEach((el) => {
                 if (el instanceof HTMLElement) {
                     if (this.mutations.analyzeAndHide(el, this.mode, fastSelector)) {
-                        this.blockedCount++;
+                        idleScanCount++;
                     }
                 }
             });
-            if (this.blockedCount > 0) {
-                this.reportStats(this.blockedCount);
+            if (idleScanCount > 0) {
+                this.blockedCount += idleScanCount;
+                this.reportStats(idleScanCount);
             }
         });
     }
