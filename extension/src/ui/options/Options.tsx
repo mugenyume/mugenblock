@@ -236,6 +236,7 @@ const Options: React.FC = () => {
                             </div>
                             <MinimalSwitch
                                 active={settings.allowRemoteConfig}
+                                label={t('settings_remote_sync')}
                                 onClick={() => updateSettings({ ...settings, allowRemoteConfig: !settings.allowRemoteConfig })}
                             />
                         </div>
@@ -247,6 +248,7 @@ const Options: React.FC = () => {
                             </div>
                             <MinimalSwitch
                                 active={settings.metricsEnabled}
+                                label={t('settings_metrics')}
                                 onClick={() => updateSettings({ ...settings, metricsEnabled: !settings.metricsEnabled })}
                             />
                         </div>
@@ -314,12 +316,14 @@ const Options: React.FC = () => {
     );
 };
 
-const MinimalSwitch: React.FC<{ active: boolean; onClick: () => void }> = ({ active, onClick }) => (
+const MinimalSwitch: React.FC<{ active: boolean; label: string; onClick: () => void }> = ({ active, label, onClick }) => (
     <button
+        type="button"
         className={`switch ${active ? 'active' : ''}`}
         onClick={onClick}
         role="switch"
         aria-checked={active}
+        aria-label={label}
     >
         <span className="switch-thumb"></span>
     </button>
