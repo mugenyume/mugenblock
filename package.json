@@ -2,16 +2,15 @@
   "name": "mugenblock",
   "private": true,
   "workspaces": [
-    "extension",
     "shared",
-    "compiler",
-    "bench"
+    "extension"
   ],
   "scripts": {
     "dev": "npm run dev --workspace=extension",
-    "build": "npm run build --workspaces",
+    "build": "npm run build --workspace=shared && npm run build --workspace=extension",
     "lint": "eslint . --ext .ts,.tsx",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "check": "tsc --build"
   },
   "devDependencies": {
     "typescript": "^5.0.0",

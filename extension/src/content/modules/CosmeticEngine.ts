@@ -1,4 +1,4 @@
-import { CosmeticConfig, SiteSettings } from '@mugenblock/shared';
+import { CosmeticConfig } from '../types';
 
 const STYLE_ELEMENT_ID = 'mugen-shield-v3';
 

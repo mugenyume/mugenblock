@@ -1,0 +1,92 @@
+{
+  "app_name": { "message": "MugenBlock" },
+  "brand_short": { "message": "MUGEN" },
+  "label_neutralized": { "message": "Neutralized" },
+  "label_site": { "message": "On this site" },
+  "label_mode": { "message": "Mode" },
+  "label_status": { "message": "Status" },
+  "label_quick_actions": { "message": "Quick actions" },
+  "label_settings": { "message": "Settings" },
+
+  "status_active": { "message": "Active" },
+  "status_paused": { "message": "Paused" },
+  "status_safe_mode": { "message": "Safe mode" },
+  "status_lite": { "message": "Lite" },
+
+  "mode_lite": { "message": "Lite" },
+  "mode_standard": { "message": "Standard" },
+  "mode_advanced": { "message": "Advanced" },
+
+  "toggle_cosmetic": { "message": "Cosmetic Shield" },
+  "toggle_script": { "message": "Script Guard" },
+
+  "action_pause": { "message": "Pause on this site" },
+  "action_resume": { "message": "Resume on this site" },
+  "action_grant_permission": { "message": "Grant site access" },
+  "action_report_issue": { "message": "Report a problem" },
+  "action_open_dashboard": { "message": "Open dashboard" },
+
+  "help_permission": { "message": "Allows cosmetic filtering and per-site controls on this domain." },
+  "help_safe_mode": { "message": "Safe mode is temporary and reduces filtering after repeated issues." },
+
+  "toast_mode": { "message": "Mode: $1" },
+  "toast_mode_failed": { "message": "Mode update failed." },
+  "toast_site_toggle_failed": { "message": "Site toggle failed." },
+  "toast_site_paused": { "message": "Site protection paused." },
+  "toast_site_resumed": { "message": "Site protection resumed." },
+  "toast_permission_failed": { "message": "Permission request failed." },
+  "toast_permission_granted": { "message": "Site permission granted." },
+  "toast_permission_denied": { "message": "Site permission not granted." },
+  "toast_issue_failed": { "message": "Could not report issue." },
+  "toast_issue_recorded": { "message": "Issue recorded." },
+  "toast_safe_mode": { "message": "Safe mode enabled for this site." },
+
+  "system_page_title": { "message": "System" },
+  "system_page_message": { "message": "Protection is inactive on system pages." },
+
+  "options_title": { "message": "Mugen Command" },
+  "options_subtitle": { "message": "Control your filtering stack and per-site intelligence." },
+  "options_section_rulesets": { "message": "Subsystems" },
+  "options_section_sites": { "message": "Site intelligence" },
+  "options_section_settings": { "message": "Global parameters" },
+  "options_section_stats": { "message": "System stats" },
+
+  "options_stat_filters": { "message": "Active filters" },
+  "options_stat_blocked": { "message": "Threats stopped" },
+
+  "ruleset_core_name": { "message": "Mugen Smart" },
+  "ruleset_core_desc": { "message": "High-signal ad network coverage tuned for speed." },
+  "ruleset_easylist_name": { "message": "EasyList Essential" },
+  "ruleset_easylist_desc": { "message": "Core ad list coverage for banners and networks." },
+  "ruleset_privacy_name": { "message": "Mugen Privacy" },
+  "ruleset_privacy_desc": { "message": "Local tracker and telemetry suppression." },
+  "ruleset_easyprivacy_name": { "message": "EasyPrivacy Essential" },
+  "ruleset_easyprivacy_desc": { "message": "Core tracker list coverage for analytics and pixels." },
+  "ruleset_peterlowe_name": { "message": "Peter Lowe" },
+  "ruleset_peterlowe_desc": { "message": "Community-maintained blocklist coverage." },
+
+  "ruleset_status_on": { "message": "Operational" },
+  "ruleset_status_off": { "message": "Offline" },
+
+  "sites_empty": { "message": "No overrides detected. Extension is running in global $1 mode." },
+  "sites_breakage": { "message": "Breakage reported" },
+  "sites_reset": { "message": "Purge local data" },
+
+  "settings_remote_sync": { "message": "Real-time matrix sync" },
+  "settings_remote_sync_desc": { "message": "Enable encrypted synchronization with the global threat database." },
+  "settings_metrics": { "message": "Local performance metrics" },
+  "settings_metrics_desc": { "message": "Store aggregate wakeup/write counters locally for diagnostics only." },
+
+  "options_backup": { "message": "Backup core" },
+  "options_restore": { "message": "Restore core" },
+  "options_refresh": { "message": "Refresh interface" },
+
+  "toast_exported": { "message": "Configuration exported." },
+  "toast_restored": { "message": "Configuration restored." },
+  "toast_import_invalid": { "message": "Import failed: Invalid format." },
+  "toast_import_missing": { "message": "Import failed: Missing core parameters." },
+  "toast_import_corrupt": { "message": "Import failed: Data corruption." },
+  "toast_overrides_cleared": { "message": "Local site intelligence reset." },
+
+  "options_loading": { "message": "Initializing Mugen core..." }
+}

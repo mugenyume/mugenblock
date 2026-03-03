@@ -11,10 +11,13 @@ const chromeMock = {
     alarms: {
         onAlarm: { addListener: vi.fn() },
         create: vi.fn(),
+        get: vi.fn().mockResolvedValue(undefined),
     },
     tabs: {
         onUpdated: { addListener: vi.fn() },
         onRemoved: { addListener: vi.fn() },
+        onActivated: { addListener: vi.fn() },
+        get: vi.fn().mockResolvedValue({ id: 1, url: 'https://example.com' }),
     },
     storage: {
         local: {
@@ -25,10 +28,16 @@ const chromeMock = {
     },
     permissions: {
         getAll: vi.fn().mockResolvedValue({ origins: [] }),
+        onAdded: { addListener: vi.fn() },
+        onRemoved: { addListener: vi.fn() },
+    },
+    action: {
+        getBadgeText: vi.fn((_, cb) => cb('0')),
     },
     declarativeNetRequest: {
         updateSessionRules: vi.fn().mockResolvedValue(undefined),
         updateEnabledRulesets: vi.fn().mockResolvedValue(undefined),
+        setExtensionActionOptions: vi.fn().mockResolvedValue(undefined),
     },
 };
 
@@ -98,5 +107,65 @@ describe('ExtensionServiceWorker', () => {
         }
 
         expect(Object.keys(worker.perSiteCache).length).toBe(500);
+    });
+
+    it('records neutralized categories with weighted domain counters', async () => {
+        const sendResponse = vi.fn();
+        worker.handleMessage(
+            {
+                type: 'RECORD_NEUTRALIZED',
+                domain: 'example.com',
+                deltas: { COS_HIDE: 2, COS_REMOVE: 1, POP_PREVENT: 1 },
+            },
+            {},
+            sendResponse,
+        );
+
+        expect(sendResponse).toHaveBeenCalledWith({ ok: true });
+
+        const domainResponse = vi.fn();
+        worker.handleMessage({ type: 'GET_DOMAIN_STATS', domain: 'example.com' }, {}, domainResponse);
+
+        expect(domainResponse).toHaveBeenCalledWith(
+            expect.objectContaining({
+                ok: true,
+                domain: 'example.com',
+                stats: expect.objectContaining({
+                    cosHide: 2,
+                    cosRemove: 1,
+                    popPrevent: 1,
+                    weighted: 3,
+                }),
+            }),
+        );
+
+        const statsResponse = vi.fn();
+        worker.handleMessage({ type: 'GET_STATS' }, {}, statsResponse);
+        expect(statsResponse).toHaveBeenCalledWith(
+            expect.objectContaining({
+                stats: expect.objectContaining({
+                    totalBlocked: 4,
+                    cosmeticHides: 2,
+                    heuristicRemovals: 1,
+                }),
+            }),
+        );
+    });
+
+    it('estimates NET_BLOCK from badge deltas for domain stats', async () => {
+        vi.mocked(chromeMock.action.getBadgeText)
+            .mockImplementationOnce((_, cb) => cb('10'))
+            .mockImplementationOnce((_, cb) => cb('14'));
+
+        const first = await new Promise<any>((resolve) => {
+            worker.handleMessage({ type: 'GET_DOMAIN_STATS', domain: 'example.com', tabId: 7 }, {}, resolve);
+        });
+        expect(first.stats.netBlock).toBe(0);
+
+        const second = await new Promise<any>((resolve) => {
+            worker.handleMessage({ type: 'GET_DOMAIN_STATS', domain: 'example.com', tabId: 7 }, {}, resolve);
+        });
+        expect(second.stats.netBlock).toBe(4);
+        expect(second.stats.weighted).toBe(4);
     });
 });

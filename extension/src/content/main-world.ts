@@ -1,14 +1,18 @@
-// MugenBlock Sentinel — Universal Behavioral Shield
-// Targets malicious intent patterns rather than specific site names
 (function () {
     'use strict';
 
-    if ((window as any).__mugenSentinel) return;
-    (window as any).__mugenSentinel = true;
+    const GUARD_KEY = '__mugenSentinel';
+    const CONFIG_EVENT = '__MUGEN_MAIN_WORLD_CONFIG__';
+    const NEUTRALIZED_EVENT = '__MUGEN_NEUTRALIZED_EVENT__';
 
-    if (location.protocol === 'about:' || location.protocol === 'chrome:' || window !== window.top) return;
+    if ((window as any)[GUARD_KEY]) return;
+    (window as any)[GUARD_KEY] = true;
 
-    const AD_URL_PATTERNS = [
+    if (location.protocol === 'about:' || location.protocol === 'chrome:' || window !== window.top) {
+        return;
+    }
+
+    const SUSPICIOUS_PATTERNS = [
         'exoclick',
         'adsterra',
         'juicyads',
@@ -24,130 +28,146 @@
         'admaven',
         'revcontent',
     ];
-    const CURRENT_ORIGIN = location.origin;
-    const originalToString = Function.prototype.toString;
-    const patchedRegistry = new Map<Function, string>();
 
-    // ─── Interaction State ─────────────────────────────────────────
-    let lastValidInteractionTime = 0;
-    let lastInteractionTarget: HTMLElement | null = null;
+    let enabled = false;
+    let installed = false;
+
+    let lastInteractionAt = 0;
+    let lastInteractionSafe = false;
+
+    const originalOpen = window.open;
+
+    let onPointerInteraction: ((event: MouseEvent) => void) | null = null;
+    let onDocumentClick: ((event: MouseEvent) => void) | null = null;
 
     function isSafeElement(el: HTMLElement | null): boolean {
         if (!el) return false;
+
         const tag = el.tagName.toLowerCase();
-        const hasText = el.innerText.trim().length > 0;
         const isInteractive =
-            ['a', 'button', 'input', 'select', 'textarea'].includes(tag) || el.closest('a, button, [role="button"]');
+            ['a', 'button', 'input', 'select', 'textarea'].includes(tag) ||
+            !!el.closest('a, button, input, select, textarea, [role="button"]');
 
-        // A "Safe" element must be interactive AND have visible content OR be a clear UI icon
-        return !!(isInteractive && (hasText || el.querySelector('svg, img') || el.clientWidth < 100));
+        if (!isInteractive) return false;
+
+        return el.innerText.trim().length > 0 || !!el.querySelector('svg, img');
     }
 
-    // ─── Stealth & Masking ─────────────────────────────────────────
-    Function.prototype.toString = function () {
-        if (patchedRegistry.has(this)) return patchedRegistry.get(this)!;
-        return originalToString.call(this);
-    };
-    function mask(patched: Function, original: Function) {
-        patchedRegistry.set(patched, originalToString.call(original));
+    function isSuspiciousUrl(url: string): boolean {
+        const normalized = url.toLowerCase();
+        return SUSPICIOUS_PATTERNS.some((pattern) => normalized.includes(pattern));
     }
 
-    // ─── Universal Domain Scoring ──────────────────────────────────
-    function getDomainScore(url: string): number {
+    function shouldBlockPopup(url: string): boolean {
+        if (!enabled || !url) return false;
+
         try {
-            const host = new URL(url, location.href).hostname;
-            if (host.includes(location.hostname)) return 0; // Safe: Same site
+            const parsed = new URL(url, location.href);
 
-            let score = 0;
-            const suspiciousTLDs = ['.in', '.pw', '.top', '.xyz', '.date', '.loan', '.click', '.info'];
-            if (suspiciousTLDs.some((tld) => host.endsWith(tld))) score += 50;
+            if (parsed.hostname === location.hostname || parsed.hostname.endsWith(`.${location.hostname}`)) {
+                return false;
+            }
 
-            const name = host.split('.')[0];
-            if (name.length > 12) score += 30;
-            if (/[0-9]{3,}/.test(name)) score += 20; // Multiple numbers in domain
-            if (!/[aeiouy]/.test(name.slice(0, 6))) score += 40; // No vowels in start (Gibberish)
+            if (!isSuspiciousUrl(parsed.href)) {
+                return false;
+            }
 
-            return score;
+            const elapsed = Date.now() - lastInteractionAt;
+            if (elapsed > 1_200 || !lastInteractionSafe) {
+                return true;
+            }
+
+            return false;
         } catch {
-            return 100;
+            return true;
         }
     }
 
-    function isMaliciousIntent(url: string): boolean {
-        const score = getDomainScore(url);
-        const timeSinceInteraction = Date.now() - lastValidInteractionTime;
+    function install(): void {
+        if (installed) return;
+        installed = true;
 
-        // Malicious if: (1) High domain score OR (2) No recent valid user interaction
-        if (score > 60) return true;
-        if (timeSinceInteraction > 1000 && !isSafeElement(lastInteractionTarget)) return true;
+        window.open = function (url?: string | URL, target?: string, features?: string): Window | null {
+            const nextUrl = typeof url === 'string' ? url : url?.toString() || '';
 
-        return AD_URL_PATTERNS.some((p) => url.toLowerCase().includes(p));
+            if (shouldBlockPopup(nextUrl)) {
+                window.dispatchEvent(
+                    new CustomEvent(NEUTRALIZED_EVENT, {
+                        detail: {
+                            category: 'POP_PREVENT',
+                            confidence: 'high',
+                        },
+                    }),
+                );
+                return null;
+            }
+
+            return originalOpen.call(window, url as any, target, features);
+        };
+
+        onPointerInteraction = (event: MouseEvent) => {
+            const target = event.target as HTMLElement | null;
+            lastInteractionAt = Date.now();
+            lastInteractionSafe = isSafeElement(target);
+        };
+
+        onDocumentClick = (event: MouseEvent) => {
+            if (!enabled) return;
+
+            const target = event.target as HTMLElement | null;
+            const anchor = target?.closest('a') as HTMLAnchorElement | null;
+            if (!anchor || !anchor.href) return;
+
+            if (!anchor.target || anchor.target !== '_blank') return;
+            if (!shouldBlockPopup(anchor.href)) return;
+
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            window.dispatchEvent(
+                new CustomEvent(NEUTRALIZED_EVENT, {
+                    detail: {
+                        category: 'POP_PREVENT',
+                        confidence: 'high',
+                    },
+                }),
+            );
+        };
+
+        window.addEventListener('mousedown', onPointerInteraction, { capture: true, passive: true });
+        document.addEventListener('click', onDocumentClick, { capture: true });
     }
 
-    // ─── window.open — Hardened ───────────────────────────────────
-    const originalOpen = window.open;
-    window.open = function (url?: string | URL, name?: string, specs?: string): any {
-        const urlStr = url ? url.toString() : '';
-        if (isMaliciousIntent(urlStr)) {
-            return new Proxy({}, { get: (_, p) => (p === 'closed' ? true : () => {}) });
+    function uninstall(): void {
+        if (!installed) return;
+
+        installed = false;
+        window.open = originalOpen;
+
+        if (onPointerInteraction) {
+            window.removeEventListener('mousedown', onPointerInteraction, true);
+            onPointerInteraction = null;
         }
-        return originalOpen.call(window, url as any, name, specs);
-    };
-    mask(window.open, originalOpen);
 
-    // ─── Tracker ───────────────────────────────────────────────────
-    window.addEventListener(
-        'mousedown',
-        (e) => {
-            lastInteractionTarget = e.target as HTMLElement;
-            if (isSafeElement(lastInteractionTarget)) {
-                lastValidInteractionTime = Date.now();
-            }
-        },
-        { capture: true },
-    );
-
-    // ─── Universal Ghost Link Trap ─────────────────────────────────
-    document.addEventListener(
-        'click',
-        (e) => {
-            const target = e.target as HTMLElement;
-            const link = target.closest('a');
-
-            if (link) {
-                const url = link.href;
-                if (isMaliciousIntent(url) || (!isSafeElement(target) && link.target === '_blank')) {
-                    e.stopImmediatePropagation();
-                    e.preventDefault();
-                    link.remove();
-                }
-            }
-        },
-        { capture: true },
-    );
-
-    // ─── Network Mirroring ─────────────────────────────────────────
-    const originalFetch = window.fetch;
-    window.fetch = async function (input: any, init?: any) {
-        const url = input instanceof Request ? input.url : input.toString();
-        if (isMaliciousIntent(url)) {
-            return new Response(JSON.stringify({ status: 'ok', data: [] }), {
-                status: 200,
-                headers: { 'Content-Type': 'application/json' },
-            });
+        if (onDocumentClick) {
+            document.removeEventListener('click', onDocumentClick, true);
+            onDocumentClick = null;
         }
-        return originalFetch.call(this, input, init);
-    };
-    mask(window.fetch, originalFetch);
 
-    // ─── Global Styling ────────────────────────────────────────────
-    const style = document.createElement('style');
-    style.textContent = `
-        /* Universal "Ghost" Neutralization */
-        [style*="z-index: 2147483647"], [style*="z-index: 999999"] {
-            pointer-events: none !important;
-            opacity: 0 !important;
+        lastInteractionAt = 0;
+        lastInteractionSafe = false;
+    }
+
+    window.addEventListener(CONFIG_EVENT, (event: Event) => {
+        const customEvent = event as CustomEvent<{ enabled?: boolean }>;
+        const nextEnabled = Boolean(customEvent.detail?.enabled);
+
+        if (nextEnabled) {
+            install();
+            enabled = true;
+            return;
         }
-    `;
-    document.documentElement.appendChild(style);
+
+        enabled = false;
+        uninstall();
+    });
 })();

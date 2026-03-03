@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "noEmit": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "paths": {
+      "@mugenblock/shared": [
+        "../shared/src"
+      ]
+    },
+    "types": [
+      "chrome"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+  "references": [
+    {
+      "path": "../shared"
+    }
+  ]
+}

@@ -1,0 +1,227 @@
+[
+    {
+        "id": 7001,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||google-analytics.com^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7002,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||analytics.google.com^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7003,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||stats.g.doubleclick.net^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7004,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||connect.facebook.net^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7005,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||pixel.facebook.com^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7006,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||api.segment.io^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7007,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||cdn.segment.com^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7008,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||mixpanel.com^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7009,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||api.mixpanel.com^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7010,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||log.optimizely.com^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7011,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||bat.bing.com^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7012,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||clarity.ms^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7013,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||hotjar.com^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7014,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||fullstory.com^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7015,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||amplitude.com^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7016,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||api.amplitude.com^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7017,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||stats.wp.com^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7018,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||static.hotjar.com^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7019,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||snap.licdn.com^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7020,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||px.ads.linkedin.com^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7021,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||analytics.tiktok.com^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7022,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||analytics.twitter.com^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7023,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||static.ads-twitter.com^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7024,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||intercom.io^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    },
+    {
+        "id": 7025,
+        "priority": 1,
+        "action": { "type": "block" },
+        "condition": {
+            "urlFilter": "||intercomcdn.com^",
+            "resourceTypes": ["script", "xmlhttprequest", "image"]
+        }
+    }
+]

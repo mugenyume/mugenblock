@@ -1,4 +1,4 @@
-import type { FilteringMode } from '@mugenblock/shared';
+import type { FilteringMode } from '../types';
 
 export interface HeuristicResult {
     isAd: boolean;
@@ -25,7 +25,13 @@ export class HeuristicsEngine {
         this.visibilityObserver.observe(el);
     }
 
+    public destroy(): void {
+        this.visibilityObserver.disconnect();
+        this.visibilityMap = new WeakMap();
+    }
+
     public analyzeNode(node: HTMLElement, mode: FilteringMode): HeuristicResult {
+        const onYouTube = location.hostname.includes('youtube.com') || location.hostname.includes('youtu.be');
         if (this.isWhitelisted(node)) return { isAd: false, confidence: 0 };
 
         // 0. DNA Structural Fingerprinting (Highest Priority)
@@ -93,8 +99,10 @@ export class HeuristicsEngine {
             const structuralResult = this.checkStructuralAnomalies(node);
             if (structuralResult.isAd) return structuralResult;
 
-            const behavioralResult = this.checkBehavioralFlags(node);
-            if (behavioralResult.isAd) return behavioralResult;
+            if (!onYouTube) {
+                const behavioralResult = this.checkBehavioralFlags(node);
+                if (behavioralResult.isAd) return behavioralResult;
+            }
         }
 
         return { isAd: false, confidence: 0 };
@@ -244,27 +252,33 @@ export class HeuristicsEngine {
 
     public scanShadowRoots(root: Node): HTMLElement[] {
         const found: HTMLElement[] = [];
-        const self = this;
-        function walker(node: Node) {
+        const maxVisitedNodes = 400;
+        const maxMatches = 32;
+        let visited = 0;
+
+        const walker = (node: Node) => {
+            if (visited >= maxVisitedNodes || found.length >= maxMatches) return;
+            visited += 1;
+
             if (node instanceof HTMLElement) {
-                const res = self.analyzeNode(node, 'advanced');
-                if (res.isAd) found.push(node);
-            }
-            if (node instanceof Element && node.shadowRoot) {
-                const shadowResults = self.scanShadowRoots(node.shadowRoot);
-                shadowResults.forEach((n) => found.push(n));
-            }
-            if (node.childNodes) {
-                for (let i = 0; i < node.childNodes.length; i++) {
-                    walker(node.childNodes[i]);
+                const res = this.analyzeNode(node, 'advanced');
+                if (res.isAd) {
+                    found.push(node);
                 }
             }
-        }
-        if (root.childNodes) {
-            for (let i = 0; i < root.childNodes.length; i++) {
-                walker(root.childNodes[i]);
+
+            if (node instanceof Element && node.shadowRoot) {
+                walker(node.shadowRoot);
             }
-        }
+
+            if (!node.childNodes || node.childNodes.length === 0) return;
+            for (let i = 0; i < node.childNodes.length; i++) {
+                walker(node.childNodes[i]);
+                if (visited >= maxVisitedNodes || found.length >= maxMatches) break;
+            }
+        };
+
+        walker(root);
         return found;
     }
 
